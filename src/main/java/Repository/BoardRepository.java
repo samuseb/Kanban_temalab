@@ -11,5 +11,4 @@ public interface BoardRepository {
     public void delete(Board board);
 
     public List findByName(String name);
-
 }
