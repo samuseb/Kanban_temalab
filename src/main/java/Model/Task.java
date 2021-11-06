@@ -20,7 +20,7 @@ public class Task {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String name;
 

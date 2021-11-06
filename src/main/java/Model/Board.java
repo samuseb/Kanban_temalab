@@ -25,7 +25,7 @@ public class Board {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String title;
 
