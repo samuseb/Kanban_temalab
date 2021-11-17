@@ -1,6 +1,6 @@
-package Repository;
+package kanban.Repository;
 
-import Model.Category;
+import kanban.Model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,11 +1,10 @@
-package Service;
+package kanban.Service;
 
 
-import Model.Task;
-import Model.User;
-import Repository.TaskRepository;
+import kanban.Model.Task;
+import kanban.Model.User;
+import kanban.Repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;

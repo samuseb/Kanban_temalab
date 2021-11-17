@@ -1,12 +1,12 @@
-package Service;
+package kanban.Service;
 
 
-import Model.Board;
-import Model.Category;
-import Model.Task;
-import Repository.BoardRepository;
-import Repository.CategoryRepository;
-import Repository.TaskRepository;
+import kanban.Model.Board;
+import kanban.Model.Category;
+import kanban.Model.Task;
+import kanban.Repository.BoardRepository;
+import kanban.Repository.CategoryRepository;
+import kanban.Repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

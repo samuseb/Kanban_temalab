@@ -1,4 +1,5 @@
-package Model;
+package kanban.Model;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,19 +16,30 @@ import javax.persistence.ManyToOne;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Ad {
+public class Task {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String name;
+
+    private String description;
+
+    @ManyToOne
+    private User assignedTo;
+
+    @ManyToOne
+    private Category category;
 
     @ManyToOne
     private Board board;
 
-    public Ad(String name, Board board){
+
+    public Task(String name, String description, Category category, Board board){
         this.name = name;
+        this.description = description;
+        this.category = category;
         this.board = board;
     }
 }
