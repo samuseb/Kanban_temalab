@@ -1,6 +1,7 @@
 package Service;
 
 
+import Model.Board;
 import Model.Task;
 import Repository.BoardRepository;
 import Repository.TaskRepository;
@@ -22,11 +23,13 @@ public class MoveTaskService {
 
     @Transactional
     public void moveTaskToAnotherBoard(String taskName, String boardTitle){
-
         List<Task> tasks = taskRepository.findByName(taskName);
-        //TODO
+        Board board = boardRepository.findFirstByTitle(boardTitle);
 
-
+        for (Task task: tasks) {
+            task.setBoard(board);
+            board.addTask(task);
+        }
     }
 
 

@@ -12,4 +12,6 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     public void delete(Board board);
 
     public List findByName(String name);
+
+    public Board findFirstByTitle(String title);
 }
