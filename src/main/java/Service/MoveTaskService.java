@@ -29,6 +29,8 @@ public class MoveTaskService {
         for (Task task: tasks) {
             task.setBoard(board);
             board.addTask(task);
+            taskRepository.save(task);
+            boardRepository.save(board);
         }
     }
 
