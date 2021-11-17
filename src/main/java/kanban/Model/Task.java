@@ -27,7 +27,7 @@ public class Task {
     private String description;
 
     @ManyToOne
-    private User assignedTo;
+    private User user;
 
     @ManyToOne
     private Category category;
@@ -36,10 +36,11 @@ public class Task {
     private Board board;
 
 
-    public Task(String name, String description, Category category, Board board){
+    public Task(String name, String description, Category category, Board board, User user){
         this.name = name;
         this.description = description;
         this.category = category;
         this.board = board;
+        this.user = user;
     }
 }
