@@ -1,3 +1,5 @@
+package kanban;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
