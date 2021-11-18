@@ -2,6 +2,7 @@ package kanban;
 
 
 import kanban.Repository.TaskRepository;
+import kanban.Repository.UserRepository;
 import kanban.Service.ReassignTaskService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
