@@ -1,4 +1,4 @@
-package kanban.Model;
+package kanban.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

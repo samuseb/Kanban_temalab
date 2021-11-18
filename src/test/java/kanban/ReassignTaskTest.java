@@ -1,13 +1,13 @@
 package kanban;
 
 
-import kanban.Model.Board;
-import kanban.Model.Category;
-import kanban.Model.Task;
-import kanban.Model.User;
-import kanban.Repository.TaskRepository;
-import kanban.Repository.UserRepository;
-import kanban.Service.ReassignTaskService;
+import kanban.model.Board;
+import kanban.model.Category;
+import kanban.model.Task;
+import kanban.model.User;
+import kanban.repository.TaskRepository;
+import kanban.repository.UserRepository;
+import kanban.service.ReassignTaskService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

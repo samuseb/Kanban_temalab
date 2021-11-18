@@ -1,4 +1,4 @@
-package kanban.Model;
+package kanban.model;
 
 
 import java.util.ArrayList;

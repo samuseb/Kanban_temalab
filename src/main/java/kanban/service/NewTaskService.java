@@ -1,8 +1,8 @@
-package kanban.Service;
+package kanban.service;
 
 
-import kanban.Model.*;
-import kanban.Repository.*;
+import kanban.model.*;
+import kanban.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +23,7 @@ public class NewTaskService {
     private UserRepository userRepository;
 
     @Transactional
-    public void CreateNewTask(String name, String description, String categoryName, String boardTitle, String userName){
+    public void createNewTask(String name, String description, String categoryName, String boardTitle, String userName){
 
         Category category = categoryRepository.findFirstByName(categoryName);
         Board board = boardRepository.findFirstByTitle(boardTitle);
@@ -32,13 +32,11 @@ public class NewTaskService {
 
 
         Task task = new Task(name, description, category, board, user);
-        Task savedTask = taskRepository.save(task);
 
-        category.addTask(savedTask);
-        board.addTask(savedTask);
+        category.addTask(task);
+        board.addTask(task);
 
-        categoryRepository.save(category);
-        boardRepository.save(board);
+
 
     }
 

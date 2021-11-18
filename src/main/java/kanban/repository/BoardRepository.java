@@ -1,6 +1,6 @@
-package kanban.Repository;
+package kanban.repository;
 
-import kanban.Model.Board;
+import kanban.model.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -11,7 +11,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 
     public void delete(Board board);
 
-    public List findByName(String name);
+    public List findByTitle(String title);
 
     public Board findFirstByTitle(String title);
 }

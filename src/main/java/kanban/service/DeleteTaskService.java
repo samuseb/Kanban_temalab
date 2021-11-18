@@ -1,12 +1,12 @@
-package kanban.Service;
+package kanban.service;
 
 
-import kanban.Model.Board;
-import kanban.Model.Category;
-import kanban.Model.Task;
-import kanban.Repository.BoardRepository;
-import kanban.Repository.CategoryRepository;
-import kanban.Repository.TaskRepository;
+import kanban.model.Board;
+import kanban.model.Category;
+import kanban.model.Task;
+import kanban.repository.BoardRepository;
+import kanban.repository.CategoryRepository;
+import kanban.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +27,7 @@ public class DeleteTaskService {
 
 
     @Transactional
-    public void DeleteTask(String taskName){
+    public void deleteTask(String taskName){
 
         List<Task> tasks = taskRepository.findByName(taskName);
 

@@ -1,4 +1,4 @@
-package kanban.Model;
+package kanban.model;
 
 public class Project {
 }

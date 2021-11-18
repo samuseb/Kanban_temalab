@@ -1,9 +1,7 @@
-package kanban.Repository;
+package kanban.repository;
 
-import kanban.Model.*;
+import kanban.model.*;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 

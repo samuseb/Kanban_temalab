@@ -1,4 +1,4 @@
-package kanban.Model;
+package kanban.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Category {
+public class User {
 
     @Id
     @GeneratedValue
@@ -26,10 +25,10 @@ public class Category {
 
     private String name;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "user")
     private List<Task> tasks;
 
-    public Category(String name){ this.name = name; }
+    public User(String name){ this.name = name; }
 
     public void addTask(Task task){
         if (tasks == null){
@@ -37,11 +36,6 @@ public class Category {
         }
 
         tasks.add(task);
-        task.setCategory(this);
-    }
-
-    public void removeTask(Task task){
-        tasks.remove(task);
-        task.setCategory(null);
+        task.setUser(this);
     }
 }

@@ -1,9 +1,8 @@
 package kanban;
 
-import kanban.Repository.BoardRepository;
-import kanban.Repository.TaskRepository;
-import kanban.Service.MoveTaskService;
-import kanban.Service.ReassignTaskService;
+import kanban.repository.BoardRepository;
+import kanban.repository.TaskRepository;
+import kanban.service.MoveTaskService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

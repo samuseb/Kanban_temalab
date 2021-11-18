@@ -1,8 +1,8 @@
-package kanban.Service;
+package kanban.service;
 
 
-import kanban.Model.*;
-import kanban.Repository.*;
+import kanban.model.*;
+import kanban.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,10 +26,7 @@ public class ReassignTaskService {
         User user = userRepository.findFirstByName(userName);
 
         for (Task task: tasks) {
-            task.setUser(user);
             user.addTask(task);
-            taskRepository.save(task);
-            userRepository.save(user);
         }
     }
 

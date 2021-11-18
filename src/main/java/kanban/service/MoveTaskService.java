@@ -1,10 +1,10 @@
-package kanban.Service;
+package kanban.service;
 
 
-import kanban.Model.Board;
-import kanban.Model.Task;
-import kanban.Repository.BoardRepository;
-import kanban.Repository.TaskRepository;
+import kanban.model.Board;
+import kanban.model.Task;
+import kanban.repository.BoardRepository;
+import kanban.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,10 +27,7 @@ public class MoveTaskService {
         Board board = boardRepository.findFirstByTitle(boardTitle);
 
         for (Task task: tasks) {
-            task.setBoard(board);
             board.addTask(task);
-            taskRepository.save(task);
-            boardRepository.save(board);
         }
     }
 
