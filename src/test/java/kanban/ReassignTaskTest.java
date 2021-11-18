@@ -6,6 +6,7 @@ import kanban.Model.Category;
 import kanban.Model.Task;
 import kanban.Model.User;
 import kanban.Repository.TaskRepository;
+import kanban.Repository.UserRepository;
 import kanban.Service.ReassignTaskService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -42,7 +43,7 @@ public class ReassignTaskTest {
 
 
         //ASSERT
-        assertThat(task.getAssignedTo()).isEqualTo(user);
+        assertThat(task.getUser()).isEqualTo(user);
 
 
 

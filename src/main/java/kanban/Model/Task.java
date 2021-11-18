@@ -43,4 +43,12 @@ public class Task {
         this.board = board;
         this.user = user;
     }
+
+    public Task(String name, String description, Category category, Board board){
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.board = board;
+    }
+
 }
