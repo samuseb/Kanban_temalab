@@ -42,6 +42,10 @@ public class Task {
         this.category = category;
         this.board = board;
         this.user = user;
+
+        board.addTask(this);
+        category.addTask(this);
+        user.addTask(this);
     }
 
     public Task(String name, String description, Category category, Board board){
@@ -49,6 +53,9 @@ public class Task {
         this.description = description;
         this.category = category;
         this.board = board;
+
+        board.addTask(this);
+        category.addTask(this);
     }
 
 }
