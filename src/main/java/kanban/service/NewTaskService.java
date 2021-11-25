@@ -33,11 +33,6 @@ public class NewTaskService {
 
         Task task = new Task(name, description, category, board, user);
 
-        category.addTask(task);
-        board.addTask(task);
-
-
-
     }
 
 }
