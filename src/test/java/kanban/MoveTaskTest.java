@@ -12,7 +12,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class MoveTaskTest {
@@ -35,6 +39,8 @@ public class MoveTaskTest {
         Board board2 = new Board("Dummy Board 2");
         Category category = new Category("Dummy Category");
         Task task = new Task("Dummy Task", "Dummy description", category, board1);
+        when(taskRepository.findByName(task.getName())).thenReturn(Arrays.asList(task));
+        when(boardRepository.findFirstByTitle(board2.getTitle())).thenReturn(board2);
 
         //ACT
         moveTaskService.moveTaskToAnotherBoard(task.getName(), board2.getTitle());
