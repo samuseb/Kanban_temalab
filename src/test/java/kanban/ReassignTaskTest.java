@@ -13,7 +13,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class ReassignTaskTest {
@@ -37,6 +41,9 @@ public class ReassignTaskTest {
         Task task = new Task("Dummy Task", "Dummy description", category, board);
         category.addTask(task);
         board.addTask(task);
+        when(taskRepository.findByName(task.getName())).thenReturn(Arrays.asList(task));
+        when(userRepository.findFirstByName(user.getName())).thenReturn(user);
+
 
         //ACT
         reassignTaskService.reassignTaskToAnotherUser(task.getName(), user.getName());
