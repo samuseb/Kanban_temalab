@@ -39,8 +39,6 @@ public class ReassignTaskTest {
         Category category = new Category("Dummy Category");
         Board board = new Board("Dummy Board");
         Task task = new Task("Dummy Task", "Dummy description", category, board);
-        category.addTask(task);
-        board.addTask(task);
         when(taskRepository.findByName(task.getName())).thenReturn(Arrays.asList(task));
         when(userRepository.findFirstByName(user.getName())).thenReturn(user);
 
