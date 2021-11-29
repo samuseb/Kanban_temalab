@@ -11,5 +11,5 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
     public void delete(Task task);
 
-    public List findByName(String name);
+    public List<Task> findByName(String name);
 }

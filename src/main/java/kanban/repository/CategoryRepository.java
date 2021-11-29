@@ -11,7 +11,7 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     public void delete(Category task);
 
-    public List findByName(String name);
+    public List<Category> findByName(String name);
 
     Category findFirstByName(String name);
 }
