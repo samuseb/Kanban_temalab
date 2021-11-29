@@ -19,7 +19,7 @@ public class Ad {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String name;
 
