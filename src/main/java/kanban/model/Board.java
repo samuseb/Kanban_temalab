@@ -10,10 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 
 @Getter
@@ -34,6 +31,9 @@ public class Board {
 
     @OneToMany(mappedBy = "board")
     private List<Ad> ads;
+
+    @ManyToOne
+    private Project project;
 
 
 
