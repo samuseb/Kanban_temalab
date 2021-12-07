@@ -58,4 +58,12 @@ public class Task {
         category.addTask(this);
     }
 
+    public Task(String name, String description, Board board){
+        this.name = name;
+        this.description = description;
+        this.board = board;
+
+        board.addTask(this);
+    }
+
 }

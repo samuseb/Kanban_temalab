@@ -26,7 +26,7 @@ public class Board {
 
     private String title;
 
-    @OneToMany(mappedBy = "board")
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "board")
     private List<Task> tasks;
 
     @OneToMany(mappedBy = "board")

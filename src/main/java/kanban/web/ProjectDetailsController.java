@@ -2,8 +2,10 @@ package kanban.web;
 
 import kanban.model.Board;
 import kanban.model.Project;
+import kanban.model.Task;
 import kanban.repository.BoardRepository;
 import kanban.repository.ProjectRepository;
+import kanban.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +27,9 @@ public class ProjectDetailsController {
     @Autowired
     ProjectRepository projectRepository;
 
+    @Autowired
+    TaskRepository taskRepository;
+
     private Project project;
 
 
@@ -41,6 +46,9 @@ public class ProjectDetailsController {
 
         model.put("board", new Board());
 
+        model.put("task", new Task());
+
+
         return ("projectDetailsPage");
 
     }
@@ -49,6 +57,15 @@ public class ProjectDetailsController {
     public String createBoard(Board board){
         board.setProject(project);
         boardRepository.save(board);
+
+        return "redirect:/project/" + project.getId();
+    }
+
+
+    @PostMapping("/createTask")
+    public String createTask(Task task){
+        taskRepository.save(task);
+
 
         return "redirect:/project/" + project.getId();
     }

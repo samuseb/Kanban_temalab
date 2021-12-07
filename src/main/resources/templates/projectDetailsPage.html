@@ -31,12 +31,31 @@
 </div>
 
 
-<div class="container">
+
+<div class="container" th:each="board : ${boards}">
+  <h1 th:text="${board.title}"></h1>
   <table class="table table-striped table-bordered">
-    <tr th:each="board : ${boards}">
-      <td th:text="${board.title}">Title</td>
+    <tr th:each="task : ${board.tasks}">
+      <td th:text="${task.name}">Name</td>
+      <td th:text="${task.description}">Description</td>
     </tr>
   </table>
+
+</div>
+
+
+<div class="container">
+  <h3>Add new task</h3>
+  <form th:action="@{/createTask}" th:object="${task}" method="post">
+    <div class="form-group">
+      <input placeholder="Name" class="form-control" id="nameInput" th:field="*{name}" /><br/>
+      <input placeholder="Description" class="form-control" id="descriptionInput" th:field="*{description}" /><br/>
+      <select class="form-control" id="boardSelect" th:field="*{board}">
+        <option th:each="b: ${boards}" th:value="${b}" th:text="${b.title}"></option>
+      </select>
+      <button class="btn btn-primary" type="submit">Add</button>
+    </div>
+  </form>
 </div>
 
 
@@ -48,7 +67,6 @@
       <input placeholder="Title" class="form-control" id="titleInput" th:field="*{title}" /><br/>
       <button class="btn btn-primary" type="submit">Add</button>
     </div>
-
   </form>
 </div>
 
