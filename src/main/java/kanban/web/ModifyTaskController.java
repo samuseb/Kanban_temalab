@@ -33,10 +33,7 @@ public class ModifyTaskController {
     UserRepository userRepository;
 
 
-    @Autowired
-    MoveTaskService moveTaskService;
-    @Autowired
-    ReassignTaskService reassignTaskService;
+
 
 
     @GetMapping("/task/modify/{id}")
@@ -58,11 +55,17 @@ public class ModifyTaskController {
     @PostMapping("/modifyTask/{id}")
     public String modifyTask(@PathVariable("id") long id,Task helperTask){
 
+
         Task task = taskRepository.findById(id).get();
-        moveTaskService.moveTaskToAnotherBoard(task.getId(), helperTask.getBoard().getTitle());
-        reassignTaskService.reassignTaskToAnotherUser(task.getId(), helperTask.getUser().getName());
+
+
+
+        task.setBoard(helperTask.getBoard());
+        task.setUser(helperTask.getUser());
         task.setName(helperTask.getName());
         task.setDescription(helperTask.getDescription());
+
+
         taskRepository.save(task);
 
         return "redirect:/project/" + task.getBoardsProjectId();
