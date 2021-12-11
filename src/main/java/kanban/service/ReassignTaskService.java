@@ -21,13 +21,11 @@ public class ReassignTaskService {
 
 
     @Transactional
-    public void reassignTaskToAnotherUser(String taskName, String userName){
-        List<Task> tasks = taskRepository.findByName(taskName);
+    public void reassignTaskToAnotherUser(long taskId, String userName){
+        Task task = taskRepository.findById(taskId).get();
         User user = userRepository.findFirstByName(userName);
 
-        for (Task task: tasks) {
-            user.addTask(task);
-        }
+        user.addTask(task);
     }
 
 

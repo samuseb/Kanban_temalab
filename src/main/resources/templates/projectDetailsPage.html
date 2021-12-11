@@ -38,11 +38,13 @@
     <tr th:each="task : ${board.tasks}">
       <td th:text="${task.name}">Name</td>
       <td th:text="${task.description}">Description</td>
+      <td> <a th:href="${'/task/modify/' + task.id}"> Modify task... </a> </td>
     </tr>
   </table>
 
 </div>
 
+<hr />
 
 <div class="container">
   <h3>Add new task</h3>
@@ -51,14 +53,18 @@
       <input placeholder="Name" class="form-control" id="nameInput" th:field="*{name}" /><br/>
       <input placeholder="Description" class="form-control" id="descriptionInput" th:field="*{description}" /><br/>
       <select class="form-control" id="boardSelect" th:field="*{board}">
-        <option th:each="b: ${boards}" th:value="${b}" th:text="${b.title}"></option>
-      </select>
+        <option th:each="b: ${boards}" th:value="${b.id}" th:text="${b.title}"></option>
+      </select><br/>
+      <select class="form-control" id="userSelect" th:field="*{user}">
+        <option th:value="${null}">Choose a user (optional)</option>
+        <option th:each="u: ${users}" th:value="${u.id}" th:text="${u.name}"></option>
+      </select><br/>
       <button class="btn btn-primary" type="submit">Add</button>
     </div>
   </form>
 </div>
 
-
+<hr />
 
 <div class="container">
   <h3>Add a board to this project</h3>

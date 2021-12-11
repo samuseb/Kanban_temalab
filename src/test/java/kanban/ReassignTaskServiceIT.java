@@ -64,7 +64,7 @@ public class ReassignTaskServiceIT {
 
 
         //ACT
-        reassignTaskService.reassignTaskToAnotherUser(task.getName(), user.getName());
+        reassignTaskService.reassignTaskToAnotherUser(task.getId(), user.getName());
 
 
         //ASSERT

@@ -3,9 +3,11 @@ package kanban.web;
 import kanban.model.Board;
 import kanban.model.Project;
 import kanban.model.Task;
+import kanban.model.User;
 import kanban.repository.BoardRepository;
 import kanban.repository.ProjectRepository;
 import kanban.repository.TaskRepository;
+import kanban.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,9 @@ public class ProjectDetailsController {
     @Autowired
     TaskRepository taskRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     private Project project;
 
 
@@ -43,6 +48,9 @@ public class ProjectDetailsController {
 
         List<Board> boardList = boardRepository.findByProjectId(project.getId());
         model.put("boards", boardList);
+
+        List<User> usersList = userRepository.findAll();
+        model.put("users", usersList);
 
         model.put("board", new Board());
 
