@@ -51,7 +51,7 @@
       <input placeholder="Name" class="form-control" id="nameInput" th:field="*{name}" /><br/>
       <input placeholder="Description" class="form-control" id="descriptionInput" th:field="*{description}" /><br/>
       <select class="form-control" id="boardSelect" th:field="*{board}">
-        <option th:each="b: ${boards}" th:value="${b}" th:text="${b.title}"></option>
+        <option th:each="b: ${boards}" th:value="${b.id}" th:text="${b.title}"></option>
       </select>
       <button class="btn btn-primary" type="submit">Add</button>
     </div>
