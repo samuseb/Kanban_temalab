@@ -22,13 +22,11 @@ public class MoveTaskService {
     private BoardRepository boardRepository;
 
     @Transactional
-    public void moveTaskToAnotherBoard(String taskName, String boardTitle){
-        List<Task> tasks = taskRepository.findByName(taskName);
+    public void moveTaskToAnotherBoard(long taskId, String boardTitle){
+        Task task = taskRepository.findById(taskId).get();
         Board board = boardRepository.findFirstByTitle(boardTitle);
 
-        for (Task task: tasks) {
-            board.addTask(task);
-        }
+        board.addTask(task);
     }
 
 

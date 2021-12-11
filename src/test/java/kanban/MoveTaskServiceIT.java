@@ -59,7 +59,7 @@ public class MoveTaskServiceIT {
 
 
         //ACT
-        moveTaskService.moveTaskToAnotherBoard(task.getName(), board2.getTitle());
+        moveTaskService.moveTaskToAnotherBoard(task.getId(), board2.getTitle());
 
 
         //ASSERT

@@ -39,12 +39,13 @@ public class ReassignTaskTest {
         Category category = new Category("Dummy Category");
         Board board = new Board("Dummy Board");
         Task task = new Task("Dummy Task", "Dummy description", category, board);
-        when(taskRepository.findByName(task.getName())).thenReturn(Arrays.asList(task));
+        task.setId(0L);
+        when(taskRepository.findById(task.getId())).thenReturn(java.util.Optional.of(task));
         when(userRepository.findFirstByName(user.getName())).thenReturn(user);
 
 
         //ACT
-        reassignTaskService.reassignTaskToAnotherUser(task.getName(), user.getName());
+        reassignTaskService.reassignTaskToAnotherUser(task.getId(), user.getName());
 
 
         //ASSERT

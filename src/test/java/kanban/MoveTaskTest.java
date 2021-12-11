@@ -39,11 +39,12 @@ public class MoveTaskTest {
         Board board2 = new Board("Dummy Board 2");
         Category category = new Category("Dummy Category");
         Task task = new Task("Dummy Task", "Dummy description", category, board1);
-        when(taskRepository.findByName(task.getName())).thenReturn(Arrays.asList(task));
+        task.setId(0L);
+        when(taskRepository.findById(task.getId())).thenReturn(java.util.Optional.of(task));
         when(boardRepository.findFirstByTitle(board2.getTitle())).thenReturn(board2);
 
         //ACT
-        moveTaskService.moveTaskToAnotherBoard(task.getName(), board2.getTitle());
+        moveTaskService.moveTaskToAnotherBoard(task.getId(), board2.getTitle());
 
 
         //ASSERT
