@@ -8,6 +8,8 @@ import kanban.model.User;
 import kanban.repository.BoardRepository;
 import kanban.repository.TaskRepository;
 import kanban.repository.UserRepository;
+import kanban.service.MoveTaskService;
+import kanban.service.ReassignTaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,13 @@ public class ModifyTaskController {
     @Autowired
     UserRepository userRepository;
 
+
+    @Autowired
+    MoveTaskService moveTaskService;
+    @Autowired
+    ReassignTaskService reassignTaskService;
+
+
     @GetMapping("/task/modify/{id}")
     public String taskModification(@PathVariable("id") long id, Map<String, Object> model){
 
@@ -50,8 +59,8 @@ public class ModifyTaskController {
     public String modifyTask(@PathVariable("id") long id,Task helperTask){
 
         Task task = taskRepository.findById(id).get();
-        task.setBoard(helperTask.getBoard());
-        task.setUser(helperTask.getUser());
+        moveTaskService.moveTaskToAnotherBoard(task.getId(), helperTask.getBoard().getTitle());
+        reassignTaskService.reassignTaskToAnotherUser(task.getId(), helperTask.getUser().getName());
         task.setName(helperTask.getName());
         task.setDescription(helperTask.getDescription());
         taskRepository.save(task);
