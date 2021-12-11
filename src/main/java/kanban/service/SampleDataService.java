@@ -20,7 +20,7 @@ public class SampleDataService {
     UserRepository userRepository;
 
     @Autowired
-    CategoryRepository caregoryRepository;
+    CategoryRepository categoryRepository;
 
     @Autowired
     BoardRepository boardRepository;
@@ -48,7 +48,7 @@ public class SampleDataService {
         Category c1 = new Category("Category1");
         User u1 = new User("User1");
 
-        Category savedC1 = caregoryRepository.save(c1);
+        Category savedC1 = categoryRepository.save(c1);
         User savedU1 = userRepository.save(u1);
 
         Task t1 = new Task("Task1 on Board1", "Description of task1", savedC1, savedB1, u1);
