@@ -66,4 +66,8 @@ public class Task {
         board.addTask(this);
     }
 
+    public long getBoardsProjectId(){
+        return board.getProject().getId();
+    }
+
 }
