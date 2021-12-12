@@ -38,18 +38,14 @@ public class ProjectDetailsController {
     @GetMapping("/project/{id}")
     public String projectDetails(@PathVariable("id") long id, Map<String, Object> model){
 
-        Project proj = projectRepository.findById(id).get();
-        project = proj;
-        model.put("project", project);
-
+        project = projectRepository.findById(id).get();
         List<Board> boardList = boardRepository.findByProjectId(project.getId());
-        model.put("boards", boardList);
-
         List<User> usersList = userRepository.findAll();
+
+        model.put("project", project);
+        model.put("boards", boardList);
         model.put("users", usersList);
-
         model.put("board", new Board());
-
         model.put("task", new Task());
 
         return ("projectDetailsPage");
