@@ -41,6 +41,7 @@
     <tr th:each="task : ${board.tasks}">
       <td th:text="${task.name}">Name</td>
       <td th:text="${task.description}">Description</td>
+      <td th:if="${task.category != null}"><a th:text="${task.category.name}"></a></td>
       <td th:if="${task.user != null}"><a th:text="${task.user.name}"></a></td>
       <td th:if="${task.user == null}">Not assigned yet</td>
       <td> <a th:href="${'/task/modify/' + task.id}"> Modify task... </a> </td>
@@ -59,6 +60,10 @@
       <input placeholder="Description" class="form-control" id="descriptionInput" th:field="*{description}" /><br/>
       <select class="form-control" id="boardSelect" th:field="*{board}">
         <option th:each="b: ${boards}" th:value="${b.id}" th:text="${b.title}"></option>
+      </select><br/>
+      <select class="form-control" id="categorySelect" th:field="*{category}">
+        <option th:value="${null}">Choose a category (optional)</option>
+        <option th:each="c: ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
       </select><br/>
       <select class="form-control" id="userSelect" th:field="*{user}">
         <option th:value="${null}">Choose a user (optional)</option>

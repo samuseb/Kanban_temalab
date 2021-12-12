@@ -52,6 +52,10 @@
             <select class="form-control" id="boardSelect" th:field="*{board}">
                 <option th:each="b: ${boards}" th:value="${b.id}" th:text="${b.title}"></option>
             </select> <br/>
+            <select class="form-control" id="categorySelect" th:field="*{category}">
+                <option th:value="${null}">Choose a category (optional)</option>
+                <option th:each="c: ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+            </select><br/>
             <select class="form-control" id="userSelect" th:field="*{user}">
                 <option th:value="${null}">Choose a user (optional)</option>
                 <option th:each="u: ${users}" th:value="${u.id}" th:text="${u.name}"></option>

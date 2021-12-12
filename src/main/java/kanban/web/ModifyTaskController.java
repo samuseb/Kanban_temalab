@@ -1,10 +1,8 @@
 package kanban.web;
 
-import kanban.model.Board;
-import kanban.model.Project;
-import kanban.model.Task;
-import kanban.model.User;
+import kanban.model.*;
 import kanban.repository.BoardRepository;
+import kanban.repository.CategoryRepository;
 import kanban.repository.TaskRepository;
 import kanban.repository.UserRepository;
 import kanban.service.MoveTaskService;
@@ -30,6 +28,9 @@ public class ModifyTaskController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    CategoryRepository categoryRepository;
+
     @GetMapping("/task/modify/{id}")
     public String taskModification(@PathVariable("id") long id, Map<String, Object> model){
 
@@ -42,6 +43,9 @@ public class ModifyTaskController {
         List<User> usersList = userRepository.findAll();
         model.put("users", usersList);
 
+        List<Category> categoriesList = categoryRepository.findAll();
+        model.put("categories", categoriesList);
+
         return ("modifyTaskPage");
     }
 
@@ -52,6 +56,7 @@ public class ModifyTaskController {
 
         task.setBoard(helperTask.getBoard());
         task.setUser(helperTask.getUser());
+        task.setCategory(helperTask.getCategory());
         task.setName(helperTask.getName());
         task.setDescription(helperTask.getDescription());
 
