@@ -1,6 +1,5 @@
 package kanban.web;
 
-
 import kanban.model.Project;
 import kanban.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +16,6 @@ public class ProjectController {
     @Autowired
     ProjectRepository projectRepository;
 
-
-
-
     @GetMapping("/")
     public String home(Map<String, Object> model) {
         List<Project> projects = projectRepository.findAll();
@@ -34,6 +30,4 @@ public class ProjectController {
         projectRepository.save(project);
         return "redirect:/";
     }
-
-
 }

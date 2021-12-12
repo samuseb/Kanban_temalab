@@ -1,6 +1,5 @@
 package kanban.service;
 
-
 import kanban.model.*;
 import kanban.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,6 @@ public class ReassignTaskService {
     @Autowired
     private UserRepository userRepository;
 
-
     @Transactional
     public void reassignTaskToAnotherUser(long taskId, String userName){
         Task task = taskRepository.findById(taskId).get();
@@ -27,6 +25,4 @@ public class ReassignTaskService {
 
         user.addTask(task);
     }
-
-
 }

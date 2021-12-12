@@ -1,6 +1,5 @@
 package kanban.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,7 +34,6 @@ public class Task {
     @ManyToOne
     private Board board;
 
-
     public Task(String name, String description, Category category, Board board, User user){
         this.name = name;
         this.description = description;
@@ -69,5 +67,4 @@ public class Task {
     public long getBoardsProjectId(){
         return board.getProject().getId();
     }
-
 }

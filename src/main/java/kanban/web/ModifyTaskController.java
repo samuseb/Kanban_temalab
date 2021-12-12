@@ -1,6 +1,5 @@
 package kanban.web;
 
-
 import kanban.model.Board;
 import kanban.model.Project;
 import kanban.model.Task;
@@ -22,7 +21,6 @@ import java.util.Map;
 @Controller
 public class ModifyTaskController {
 
-
     @Autowired
     TaskRepository taskRepository;
 
@@ -31,10 +29,6 @@ public class ModifyTaskController {
 
     @Autowired
     UserRepository userRepository;
-
-
-
-
 
     @GetMapping("/task/modify/{id}")
     public String taskModification(@PathVariable("id") long id, Map<String, Object> model){
@@ -51,26 +45,18 @@ public class ModifyTaskController {
         return ("modifyTaskPage");
     }
 
-
     @PostMapping("/modifyTask/{id}")
     public String modifyTask(@PathVariable("id") long id,Task helperTask){
 
-
         Task task = taskRepository.findById(id).get();
-
-
 
         task.setBoard(helperTask.getBoard());
         task.setUser(helperTask.getUser());
         task.setName(helperTask.getName());
         task.setDescription(helperTask.getDescription());
 
-
         taskRepository.save(task);
 
         return "redirect:/project/" + task.getBoardsProjectId();
-
     }
-
-
 }

@@ -1,6 +1,5 @@
 package kanban.web;
 
-
 import kanban.model.User;
 import kanban.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 import java.util.Map;
 
-
 @Controller
 public class UserController {
 
     @Autowired
     UserRepository userRepository;
-
-
-
 
     @GetMapping("/users")
     public String home(Map<String, Object> model) {
