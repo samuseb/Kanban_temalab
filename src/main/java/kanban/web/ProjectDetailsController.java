@@ -50,6 +50,21 @@ public class ProjectDetailsController {
         return ("projectDetailsPage");
     }
 
+
+    @GetMapping("/board/delete/{id}")
+    public String deleteBoard(@PathVariable("id") long id, Map<String, Object> model){
+        Board board = boardRepository.getById(id);
+        List<Task> boardsTasks = taskRepository.findByBoardId(id);
+        for(Task task: boardsTasks)
+            taskRepository.delete(task);
+
+        boardRepository.delete(board);
+
+        return "redirect:/project/" + project.getId();
+    }
+
+
+
     @GetMapping("/task/delete/{id}")
     public String deleteTask(@PathVariable("id") long id, Map<String, Object> model){
         Task task = taskRepository.getById(id);

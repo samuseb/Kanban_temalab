@@ -37,6 +37,7 @@
 
 <div class="container" th:each="board : ${boards}">
   <h1 th:text="${board.title}"></h1>
+  <a th:href="${'/board/delete/' + board.id}">Delete board</a>
   <table class="table table-striped table-bordered">
     <tr th:each="task : ${board.tasks}">
       <td th:text="${task.name}">Name</td>
@@ -49,7 +50,6 @@
       <td> <a th:href="${'/task/delete/' + task.id}"> Delete task </a> </td>
     </tr>
   </table>
-
 </div>
 
 <hr />
