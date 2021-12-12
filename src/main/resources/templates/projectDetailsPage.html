@@ -42,6 +42,7 @@
       <td th:text="${task.name}">Name</td>
       <td th:text="${task.description}">Description</td>
       <td th:if="${task.category != null}"><a th:text="${task.category.name}"></a></td>
+      <td th:if="${task.category == null}">No category yet</a></td>
       <td th:if="${task.user != null}"><a th:text="${task.user.name}"></a></td>
       <td th:if="${task.user == null}">Not assigned yet</td>
       <td> <a th:href="${'/task/modify/' + task.id}"> Modify task... </a> </td>
