@@ -36,4 +36,9 @@ public class User {
         tasks.add(task);
         task.setUser(this);
     }
+
+    public void removeTask(Task task){
+        tasks.remove(task);
+        task.setUser(null);
+    }
 }
