@@ -10,15 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 import java.util.Map;
 
-
 @Controller
 public class CategoryController {
 
     @Autowired
     CategoryRepository categoryRepository;
-
-
-
 
     @GetMapping("/categories")
     public String home(Map<String, Object> model) {

@@ -50,7 +50,6 @@ public class ProjectDetailsController {
         return ("projectDetailsPage");
     }
 
-
     @GetMapping("/board/delete/{id}")
     public String deleteBoard(@PathVariable("id") long id, Map<String, Object> model){
         Board board = boardRepository.getById(id);
@@ -63,8 +62,6 @@ public class ProjectDetailsController {
         return "redirect:/project/" + project.getId();
     }
 
-
-
     @GetMapping("/task/delete/{id}")
     public String deleteTask(@PathVariable("id") long id, Map<String, Object> model){
         Task task = taskRepository.getById(id);
@@ -72,8 +69,6 @@ public class ProjectDetailsController {
 
         return "redirect:/project/" + project.getId();
     }
-
-
 
     @PostMapping("/createBoard")
     public String createBoard(Board board){
