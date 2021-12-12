@@ -17,7 +17,7 @@ public class CategoryController {
     CategoryRepository categoryRepository;
 
     @GetMapping("/categories")
-    public String home(Map<String, Object> model) {
+    public String categories(Map<String, Object> model) {
         List<Category> categories = categoryRepository.findAll();
         model.put("categories", categories);
         model.put("category", new Category());
