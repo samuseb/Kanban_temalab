@@ -50,6 +50,16 @@ public class ProjectDetailsController {
         return ("projectDetailsPage");
     }
 
+    @GetMapping("/task/delete/{id}")
+    public String deleteTask(@PathVariable("id") long id, Map<String, Object> model){
+        Task task = taskRepository.getById(id);
+        taskRepository.delete(task);
+
+        return "redirect:/project/" + project.getId();
+    }
+
+
+
     @PostMapping("/createBoard")
     public String createBoard(Board board){
         board.setProject(project);

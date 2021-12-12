@@ -45,6 +45,7 @@
       <td th:if="${task.user != null}"><a th:text="${task.user.name}"></a></td>
       <td th:if="${task.user == null}">Not assigned yet</td>
       <td> <a th:href="${'/task/modify/' + task.id}"> Modify task... </a> </td>
+      <td> <a th:href="${'/task/delete/' + task.id}"> Delete task </a> </td>
     </tr>
   </table>
 
