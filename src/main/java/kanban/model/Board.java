@@ -1,6 +1,5 @@
 package kanban.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-
 
 @Getter
 @Setter
@@ -34,9 +32,6 @@ public class Board {
 
     @ManyToOne
     private Project project;
-
-
-
 
     public Board(String title){ this.title = title; }
 

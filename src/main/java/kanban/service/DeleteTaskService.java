@@ -1,6 +1,5 @@
 package kanban.service;
 
-
 import kanban.model.Board;
 import kanban.model.Category;
 import kanban.model.Task;
@@ -25,7 +24,6 @@ public class DeleteTaskService {
     @Autowired
     CategoryRepository categoryRepository;
 
-
     @Transactional
     public void deleteTask(String taskName){
 
@@ -40,7 +38,4 @@ public class DeleteTaskService {
             taskRepository.delete(task);
         }
     }
-
-
-
 }

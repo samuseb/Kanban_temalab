@@ -1,6 +1,5 @@
 package kanban.service;
 
-
 import kanban.model.Board;
 import kanban.model.Task;
 import kanban.repository.BoardRepository;
@@ -13,7 +12,6 @@ import java.util.List;
 
 @Service
 public class MoveTaskService {
-
 
     @Autowired
     private TaskRepository taskRepository;
@@ -28,7 +26,4 @@ public class MoveTaskService {
 
         board.addTask(task);
     }
-
-
-
 }

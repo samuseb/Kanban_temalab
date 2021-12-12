@@ -1,6 +1,5 @@
 package kanban.service;
 
-
 import kanban.model.*;
 import kanban.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,8 +55,5 @@ public class SampleDataService {
 
         taskRepository.save(t1);
         taskRepository.save(t2);
-
     }
-
-
 }

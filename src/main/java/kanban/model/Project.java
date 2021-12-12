@@ -1,6 +1,5 @@
 package kanban.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +25,6 @@ public class Project {
 
     private String name;
 
-
     @OneToMany(mappedBy = "project")
     private List<Board> boards;
 
@@ -46,5 +44,4 @@ public class Project {
         boards.remove(board);
         board.setProject(null);
     }
-
 }

@@ -18,10 +18,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-
 @Controller
 public class ProjectDetailsController {
-
 
     @Autowired
     BoardRepository boardRepository;
@@ -37,10 +35,8 @@ public class ProjectDetailsController {
 
     private Project project;
 
-
     @GetMapping("/project/{id}")
     public String projectDetails(@PathVariable("id") long id, Map<String, Object> model){
-
 
         Project proj = projectRepository.findById(id).get();
         project = proj;
@@ -56,9 +52,7 @@ public class ProjectDetailsController {
 
         model.put("task", new Task());
 
-
         return ("projectDetailsPage");
-
     }
 
     @PostMapping("/createBoard")
@@ -69,15 +63,10 @@ public class ProjectDetailsController {
         return "redirect:/project/" + project.getId();
     }
 
-
     @PostMapping("/createTask")
     public String createTask(Task task){
         taskRepository.save(task);
 
-
         return "redirect:/project/" + project.getId();
     }
-
-
-
 }
