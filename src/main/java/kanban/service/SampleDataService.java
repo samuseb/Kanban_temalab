@@ -50,8 +50,8 @@ public class SampleDataService {
         Category savedC1 = categoryRepository.save(c1);
         User savedU1 = userRepository.save(u1);
 
-        Task t1 = new Task("Task1 on Board1", "Description of task1", savedC1, savedB1, u1);
-        Task t2 = new Task("Task2 on Board2", "Description of task2", savedC1, savedB2, u1);
+        Task t1 = new Task("Task1 on Board1", "Description of task1", savedC1, savedB1, savedU1);
+        Task t2 = new Task("Task2 on Board2", "Description of task2", savedC1, savedB2, savedU1);
 
         taskRepository.save(t1);
         taskRepository.save(t2);
