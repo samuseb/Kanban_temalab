@@ -17,7 +17,7 @@ public class UserController {
     UserRepository userRepository;
 
     @GetMapping("/users")
-    public String home(Map<String, Object> model) {
+    public String users(Map<String, Object> model) {
         List<User> users = userRepository.findAll();
         model.put("users", users);
         model.put("user", new User());
