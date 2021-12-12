@@ -48,10 +48,13 @@ public class SampleDataService {
         Board savedB2 = boardRepository.save(b2);
 
         Category c1 = new Category("Category1");
-        User u1 = new User("User1");
-
         Category savedC1 = categoryRepository.save(c1);
+
+        User u1 = new User("User1");
         User savedU1 = userRepository.save(u1);
+
+        Ad a1 = new Ad("Ad1", savedB1);
+        adRepository.save(a1);
 
         Task t1 = new Task("Task1 on Board1", "Description of task1", savedC1, savedB1, savedU1);
         Task t2 = new Task("Task2 on Board2", "Description of task2", savedC1, savedB2, savedU1);
